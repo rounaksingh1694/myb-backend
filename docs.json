@@ -1,0 +1,319 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0",
+		"title": "MYB API",
+		"contact": {}
+	},
+	"host": "myb-backend.herokuapp.com",
+	"basePath": "/api",
+	"securityDefinitions": {},
+	"schemes": ["https"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/auth/signup": {
+			"post": {
+				"summary": "signup",
+				"tags": ["Authentication"],
+				"operationId": "signup",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Body",
+						"in": "body",
+						"required": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/signuprequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/auth/signin": {
+			"post": {
+				"summary": "signin",
+				"tags": ["Authentication"],
+				"operationId": "signin",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Body",
+						"in": "body",
+						"required": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/signinrequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/auth/signout": {
+			"get": {
+				"summary": "signout",
+				"tags": ["Authentication"],
+				"operationId": "signout",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/question/create/{userId}": {
+			"post": {
+				"summary": "createQuestion",
+				"tags": ["CreateQuestion"],
+				"operationId": "createQuestion",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					},
+					{
+						"name": "Body",
+						"in": "body",
+						"required": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/createQuestionRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/game/create/{userId}": {
+			"post": {
+				"summary": "createGameRequest",
+				"tags": ["CreateGameRequest"],
+				"operationId": "createGameRequest",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					},
+					{
+						"name": "Body",
+						"in": "body",
+						"required": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/createGameRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/game/update/{userId}/{gameId}": {
+			"post": {
+				"summary": "updateGameRequest",
+				"tags": ["UpdateGameRequest"],
+				"operationId": "updateGameRequest",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					},
+					{
+						"name": "gameId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					},
+					{
+						"name": "Body",
+						"in": "body",
+						"required": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/updateGameRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"signuprequest": {
+			"title": "signuprequest",
+			"example": {
+				"name": "string",
+				"username": "string",
+				"password": "string",
+				"avatar": "img url to profile photo"
+			},
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"username": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"avatar": {
+					"type": "string"
+				}
+			},
+			"required": ["name", "username", "password", "avatar"]
+		},
+		"signinrequest": {
+			"title": "signuprequest",
+			"example": {
+				"username": "string",
+				"password": "string"
+			},
+			"type": "object",
+			"properties": {
+				"username": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				}
+			},
+			"required": ["username", "password"]
+		},
+		"createQuestionRequest": {
+			"title": "createQuestionRequest",
+			"example": {
+				"question": "Area lying between the curve y² = 4x and y = 2x is",
+				"options": ["2/3", "1/3", "1/4", "3/4"],
+				"correctOption": 1,
+				"rating": 100
+			},
+			"type": "object",
+			"properties": {
+				"question": { "type": "String" },
+				"options": [{ "type": "String" }],
+				"correctOption": { "type": "Number" },
+				"rating": { "type": "Number" }
+			},
+			"required": ["question", "options", "correctOption", "rating"]
+		},
+		"createGameRequest": {
+			"title": "createGameRequest",
+			"example": {
+				"rating": 199,
+				"totalQuestions": 20,
+				"totalTime": 480,
+				"thresholdScore": 32
+			},
+			"type": "object",
+			"properties": {
+				"rating": { "type": "Number" },
+				"totalQuestions": { "type": "Number" },
+				"totalTime": { "type": "Number" },
+				"thresholdScore": { "type": "Number" }
+			},
+			"required": ["rating", "totalQuestions", "totalTime", "thresholdScore"]
+		},
+		"updateGameRequest": {
+			"title": "updateGameRequest",
+			"example": {
+				"correctQuestions": ["628a836a9db197558ce6aa66"],
+				"completedTime": 175,
+				"scoredPoints": 13,
+				"resigned": false
+			},
+			"type": "object",
+			"properties": {
+				"correctQuestions": [{ "type": "String" }],
+				"completedTime": { "type": "Number" },
+				"scoredPoints": { "type": "Number" },
+				"resigned": { "type": "Boolean" }
+			},
+			"required": [
+				"correctQuestions",
+				"totalcompletedTimeQuestions",
+				"scoredPoints",
+				"resigned"
+			]
+		}
+	}
+}
