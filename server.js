@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT ? process.env.PORT : 8000;
 
 mongoose
-	.connect(process.env.DEV_DATABASE_HOST, {
+	.connect(process.env.PROD_DATABASE_HOST, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true,
