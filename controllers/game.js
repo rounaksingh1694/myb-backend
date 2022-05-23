@@ -51,10 +51,21 @@ exports.createGame = (req, res) => {
 				console.log("ERROR IN GAME CREATE", err);
 				return getErrorMessageInJson(res, 400, "Cannot create a game");
 			}
-			newGame
-				.populate("user")
-				.execPopulate()
-				.then(() => sendResponse(res, newGame));
+
+			User.findOneAndUpdate(
+				{ _id: user._id },
+				{ $push: { games: newGame._id } },
+				{ new: true },
+				(err, newUser) => {
+					if (err || !newUser) {
+						return getErrorMesaageInJson(res, 400, "Cannot create a game");
+					}
+					newGame
+						.populate("user")
+						.execPopulate()
+						.then(() => sendResponse(res, newGame));
+				}
+			);
 		});
 	}).limit(totalQuestions);
 };

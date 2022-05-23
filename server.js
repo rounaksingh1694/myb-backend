@@ -9,6 +9,7 @@ const swaggerDocument = require("./docs.json");
 const authRoutes = require("./routes/auth");
 const questionRoutes = require("./routes/question");
 const gameRoutes = require("./routes/game");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.listen(port, () => {
 app.use("/api/auth", authRoutes);
 app.use("/api/question", questionRoutes);
 app.use("/api/game", gameRoutes);
+app.use("/api/user", userRoutes);
 
 // Docs
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
