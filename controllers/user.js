@@ -68,7 +68,7 @@ exports.getUserAvatar = (req, res) => {
 exports.getLeaderboard = (req, res) => {
 	User.find()
 		.sort({ rating: -1 })
-		.select("_id name username rating totalGames")
+		.select("_id name username rating avatar games")
 		.exec((err, users) => {
 			if (!users) {
 				return getErrorMessageInJson(res, 400, "No user present");

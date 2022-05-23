@@ -82,6 +82,7 @@ exports.updateGame = (req, res) => {
 				scoredPoints: game.scoredPoints,
 				completedTime: game.completedTime,
 				resigned: game.resigned,
+				rating: game.rating,
 			},
 		},
 		{ new: true },
@@ -90,10 +91,28 @@ exports.updateGame = (req, res) => {
 				console.log("ERROR IN GAME UPDATE", err);
 				return getErrorMessageInJson(res, 400, "Cannot update a game");
 			}
-			newGame
-				.populate("user")
-				.execPopulate()
-				.then(() => sendResponse(res, newGame));
+			User.findOneAndUpdate(
+				{ _id: req.profile._id },
+				{ $set: { rating: game.rating } },
+				{ new: true },
+				(error, newUser) => {
+					if (error) {
+						console.error("ERROR IN UPDATING USER UPDATING GAME", error);
+						return getErrorMesaageInJson(
+							res,
+							400,
+							"Error in updating user info"
+						);
+					}
+					if (!newUser)
+						return getErrorMesaageInJson(res, 400, "Cannot update the user");
+
+					newGame
+						.populate("user")
+						.execPopulate()
+						.then(() => sendResponse(res, newGame));
+				}
+			);
 		}
 	);
 };
