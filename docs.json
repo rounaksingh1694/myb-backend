@@ -217,9 +217,9 @@
 		},
 		"/user/get/{userId}": {
 			"get": {
-				"summary": "updateGameRequest",
-				"tags": ["UpdateGameRequest"],
-				"operationId": "updateGameRequest",
+				"summary": "getUser",
+				"tags": ["getUser"],
+				"operationId": "getUser",
 				"deprecated": false,
 				"produces": ["application/json"],
 				"parameters": [
@@ -248,9 +248,9 @@
 		},
 		"/user/avatar/{userId}": {
 			"get": {
-				"summary": "updateGameRequest",
-				"tags": ["UpdateGameRequest"],
-				"operationId": "updateGameRequest",
+				"summary": "getUserAvatar",
+				"tags": ["getUserAvatar"],
+				"operationId": "getUserAvatar",
 				"deprecated": false,
 				"produces": ["application/json"],
 				"parameters": [
@@ -279,9 +279,9 @@
 		},
 		"/user/games/{userId}": {
 			"get": {
-				"summary": "updateGameRequest",
-				"tags": ["UpdateGameRequest"],
-				"operationId": "updateGameRequest",
+				"summary": "getUserGames",
+				"tags": ["getUserGames"],
+				"operationId": "getUserGames",
 				"deprecated": false,
 				"produces": ["application/json"],
 				"parameters": [
@@ -310,9 +310,9 @@
 		},
 		"/user/leaderboard/{userId}": {
 			"get": {
-				"summary": "updateGameRequest",
-				"tags": ["UpdateGameRequest"],
-				"operationId": "updateGameRequest",
+				"summary": "getLeaderBoard",
+				"tags": ["getLeaderBoard"],
+				"operationId": "getLeaderBoard",
 				"deprecated": false,
 				"produces": ["application/json"],
 				"parameters": [
