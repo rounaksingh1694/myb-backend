@@ -214,6 +214,130 @@
 					}
 				}
 			}
+		},
+		"/user/get/{userId}": {
+			"get": {
+				"summary": "updateGameRequest",
+				"tags": ["UpdateGameRequest"],
+				"operationId": "updateGameRequest",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/user/avatar/{userId}": {
+			"get": {
+				"summary": "updateGameRequest",
+				"tags": ["UpdateGameRequest"],
+				"operationId": "updateGameRequest",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/user/games/{userId}": {
+			"get": {
+				"summary": "updateGameRequest",
+				"tags": ["UpdateGameRequest"],
+				"operationId": "updateGameRequest",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/user/leaderboard/{userId}": {
+			"get": {
+				"summary": "updateGameRequest",
+				"tags": ["UpdateGameRequest"],
+				"operationId": "updateGameRequest",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"required": true,
+						"default": "Bearer {token}",
+						"type": "string"
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"required": true,
+						"default": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
 		}
 	},
 	"definitions": {
