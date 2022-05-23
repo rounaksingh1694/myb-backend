@@ -423,7 +423,8 @@
 				"correctQuestions": ["628a836a9db197558ce6aa66"],
 				"completedTime": 175,
 				"scoredPoints": 13,
-				"resigned": false
+				"resigned": false,
+				"rating": 199
 			},
 			"type": "object",
 			"properties": {
