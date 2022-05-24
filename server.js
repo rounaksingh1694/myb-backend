@@ -10,6 +10,7 @@ const authRoutes = require("./routes/auth");
 const questionRoutes = require("./routes/question");
 const gameRoutes = require("./routes/game");
 const userRoutes = require("./routes/user");
+const miscRoutes = require("./routes/misc");
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/question", questionRoutes);
 app.use("/api/game", gameRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/misc", miscRoutes);
 
 // Docs
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));

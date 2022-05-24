@@ -17,6 +17,7 @@
 		"express": "^4.17.1",
 		"express-jwt": "^6.0.0",
 		"express-validator": "^6.11.1",
+		"firebase": "^9.8.1",
 		"formidable": "^1.2.2",
 		"jsonwebtoken": "^8.5.1",
 		"lodash": "^4.17.21",

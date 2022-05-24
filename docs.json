@@ -338,6 +338,22 @@
 					}
 				}
 			}
+		},
+		"/misc/avatars/get": {
+			"get": {
+				"summary": "getAllAvatars",
+				"tags": ["getAllAvatars"],
+				"operationId": "getAllAvatars",
+				"deprecated": false,
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
 		}
 	},
 	"definitions": {

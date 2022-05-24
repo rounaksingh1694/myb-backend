@@ -108,4 +108,4 @@ exports.getQuestionById = (req, res, next, questionId) => {
 	});
 };
 
-// Constant variables
+// Firebase
