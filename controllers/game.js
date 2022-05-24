@@ -60,10 +60,7 @@ exports.createGame = (req, res) => {
 					if (err || !newUser) {
 						return getErrorMesaageInJson(res, 400, "Cannot create a game");
 					}
-					newGame
-						.populate("user")
-						.execPopulate()
-						.then(() => sendResponse(res, newGame));
+					newGame.execPopulate().then(() => sendResponse(res, newGame));
 				}
 			);
 		});
@@ -107,10 +104,7 @@ exports.updateGame = (req, res) => {
 					if (!newUser)
 						return getErrorMesaageInJson(res, 400, "Cannot update the user");
 
-					newGame
-						.populate("user")
-						.execPopulate()
-						.then(() => sendResponse(res, newGame));
+					newGame.execPopulate().then(() => sendResponse(res, newGame));
 				}
 			);
 		}
