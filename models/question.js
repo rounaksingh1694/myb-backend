@@ -26,6 +26,10 @@ const questionSchema = new Schema(
 			type: Number,
 			required: true,
 		},
+		topic: {
+			type: String,
+			required: true,
+		},
 	},
 	{ timestamps: true }
 );

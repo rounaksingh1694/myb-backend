@@ -24,6 +24,7 @@ exports.createQuestion = (req, res) => {
 		options: req.body.options,
 		correctOption: req.body.correctOption,
 		rating: req.body.rating,
+		topic: req.body.topic,
 	};
 	Question.create(question, (error, newQuestion) => {
 		if (error || !newQuestion) {
