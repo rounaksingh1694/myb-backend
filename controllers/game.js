@@ -31,7 +31,7 @@ exports.createGame = (req, res) => {
 	var questions = [];
 
 	Question.aggregate([
-		{ $match: { rating: questionRating } },
+		{ $match: { rating: { $lte: questionRating } } },
 		{ $sample: { size: totalQuestions } },
 	]).exec((err, nQuestions) => {
 		if (err || !questions) {
