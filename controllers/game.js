@@ -30,8 +30,12 @@ exports.createGame = (req, res) => {
 	console.log("QUESTION RATING", questionRating);
 	var questions = [];
 
-	Question.find({ rating: questionRating }, (err, nQuestions) => {
+	Question.aggregate([
+		{ $match: { rating: questionRating } },
+		{ $sample: { size: totalQuestions } },
+	]).exec((err, nQuestions) => {
 		if (err || !questions) {
+			console.log("ERROR CREATE GAME", err);
 			return getErrorMessageInJson(res, 400, "Cannot create a game");
 		}
 		questions = nQuestions;
@@ -60,11 +64,14 @@ exports.createGame = (req, res) => {
 					if (err || !newUser) {
 						return getErrorMesaageInJson(res, 400, "Cannot create a game");
 					}
-					newGame.execPopulate().then(() => sendResponse(res, newGame));
+					newGame
+						.populate("questions")
+						.execPopulate()
+						.then(() => sendResponse(res, newGame));
 				}
 			);
 		});
-	}).limit(totalQuestions);
+	});
 };
 
 exports.updateGame = (req, res) => {

@@ -59,7 +59,12 @@ exports.signIn = (req, res) => {
 			return getErrorMessageInJson(res, 400, "Username & password don't match");
 		}
 
-		sendUserResponse(res, user);
+		user
+			.populate("games")
+			.execPopulate()
+			.then(() => {
+				sendUserResponse(res, user);
+			});
 	});
 };
 
