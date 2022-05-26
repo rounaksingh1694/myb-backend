@@ -25,8 +25,7 @@ exports.createGame = (req, res) => {
 	const totalTime = req.body.totalTime;
 	const totalQuestions = req.body.totalQuestions;
 	const thresholdScore = req.body.thresholdScore;
-	const questionRating =
-		(userRating / 100) * 100 > 0 ? (userRating / 100) * 100 : 100;
+	const questionRating = userRating >= 100 ? (userRating / 100) * 100 : 100;
 	console.log("QUESTION RATING", questionRating);
 	var questions = [];
 
